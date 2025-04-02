@@ -2,7 +2,10 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 const client = new Client({
-    authStrategy: new LocalAuth() // Ensures session persistence
+    authStrategy: new LocalAuth(), // Ensures session persistence
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }
 });
 
 const group_id = "120363387793668786@g.us"; // Replace with your actual group ID
